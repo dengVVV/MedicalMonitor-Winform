@@ -1,0 +1,33 @@
+﻿############################
+# Visual Studio
+############################
+.vs/
+bin/
+obj/
+
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+############################
+# AI Tools
+############################
+.claude/
+auto-compile-skill/
+skill-update/
+
+AGENTS.md
+AGENTS_global.md
+CLAUDE.md
+
+############################
+# Logs
+############################
+*.log
+
+############################
+# Temporary
+############################
+*.tmp
+*.temp

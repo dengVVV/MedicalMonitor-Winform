@@ -1,0 +1,45 @@
+﻿## NuGet 依赖包清单
+
+> 本文件为旧版依赖清单，已被 Docs/packages.config + Docs/install-packages.ps1 替代。
+> 所有 NuGet 依赖已声明在 MedicalMonitor.WinForm.csproj 的 PackageReference 中。
+>
+> 安装方式：
+>   cd Docs
+>   .\install-packages.ps1
+>
+> 或直接在 Visual Studio 中打开解决方案，NuGet 会自动还原。
+-----------------
+
+### 核心框架
+
+| 包名 | 版本 | 用途 |
+|------|------|------|
+| CommunityToolkit.Mvvm | 8.2.2 | MVVM 框架（替代已停更的 MvvmLightLibs） |
+| Microsoft.Extensions.DependencyInjection | 6.0.1 | DI 容器 |
+| OxyPlot.WindowsForms | 2.1.2 | 医疗波形实时显示 |
+| MaterialSkin.2 | 2.3.1 | UI 样式（免费 Material 风格） |
+
+### 通信层
+| 包名 | 版本 | 用途 |
+|------|------|------|
+| NModbus | 3.0.14 | Modbus RTU/TCP 协议 |
+| System.IO.Ports | (框架内置) | SerialPort 串口通信 |
+
+### 数据层
+| 包名 | 版本 | 用途 |
+|------|------|------|
+| MySql.Data.EntityFramework | 8.0.33 | MySQL 数据库访问（含 EF 依赖） |
+
+### 日志
+| 包名 | 版本 | 用途 |
+|------|------|------|
+| Serilog | 2.12.0 | 结构化日志框架 |
+| Serilog.Sinks.File | 5.0.0 | 日志输出到文件 |
+| Serilog.Sinks.Console | 4.1.0 | 日志输出到控制台（调试用） |
+
+### 工具库
+| 包名 | 版本 | 用途 |
+|------|------|------|
+| Newtonsoft.Json | 13.0.3 | JSON 序列化/反序列化 |
+| AutoMapper | 10.1.1 | 实体与 DTO 映射 |
+| FluentValidation | 10.4.0 | 输入验证 |

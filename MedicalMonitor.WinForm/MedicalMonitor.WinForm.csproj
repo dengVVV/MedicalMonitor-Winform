@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{89AB0D60-2A69-48E2-A19B-76660E2ED4E5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>MedicalMonitor.WinForm</RootNamespace>
+    <AssemblyName>MedicalMonitor.WinForm</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+    <UseWinFormsOutOfProcDesigner>true</UseWinFormsOutOfProcDesigner>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="Microsoft.VisualBasic" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Models -->
+    <Compile Include="Controls\SetPatientsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SetPatientsControl.Designer.cs">
+      <DependentUpon>SetPatientsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AlarmEventModel.cs" />
+    <Compile Include="Models\BedMappingModel.cs" />
+    <Compile Include="Models\DailyStatisticsModel.cs" />
+    <Compile Include="Models\DeviceDataFrame.cs" />
+    <Compile Include="Models\DeviceModel.cs" />
+    <Compile Include="Models\PatientModel.cs" />
+    <Compile Include="Models\VitalSignsModel.cs" />
+    <Compile Include="Models\Enums\AlarmLevel.cs" />
+    <Compile Include="Models\Enums\DeviceType.cs" />
+    <Compile Include="Models\Enums\Gender.cs" />
+    <Compile Include="Models\Enums\VitalSignType.cs" />
+    <!-- BLL -->
+    <Compile Include="BLL\AuthenticationService.cs" />
+    <Compile Include="BLL\BackgroundStatisticsService.cs" />
+    <Compile Include="BLL\DataParserService.cs" />
+    <Compile Include="BLL\DeviceCommunicationService.cs" />
+    <Compile Include="BLL\DeviceSimulatorService.cs" />
+    <Compile Include="BLL\ExportService.cs" />
+    <Compile Include="BLL\MonitoringService.cs" />
+    <Compile Include="BLL\PatientBindingService.cs" />
+    <Compile Include="BLL\ThresholdConfigService.cs" />
+    <Compile Include="BLL\AlarmDetectionService.cs" />
+    <Compile Include="BLL\AuditLogService.cs" />
+    <Compile Include="BLL\Interface\IDeviceDataSource.cs" />
+    <!-- DAL -->
+    <Compile Include="DAL\DbConnectionFactory.cs" />
+    <Compile Include="DAL\DeviceRepository.cs" />
+    <Compile Include="DAL\MedicalMonitorDbContext.cs" />
+    <Compile Include="DAL\PatientRepository.cs" />
+    <Compile Include="DAL\StatisticsRepository.cs" />
+    <Compile Include="DAL\UserRepository.cs" />
+    <Compile Include="DAL\VitalSignsQueryRepository.cs" />
+    <Compile Include="DAL\AlarmEventRepository.cs" />
+    <Compile Include="DAL\Entities\AlarmEventEntity.cs" />
+    <Compile Include="DAL\Entities\AuditLogEntity.cs" />
+    <Compile Include="DAL\Entities\DailyStatisticsEntity.cs" />
+    <Compile Include="DAL\Entities\DeviceEntity.cs" />
+    <Compile Include="DAL\Entities\PatientEntity.cs" />
+    <Compile Include="DAL\Entities\UserEntity.cs" />
+    <Compile Include="DAL\Entities\VitalSignsRecordEntity.cs" />
+    <!-- Controls -->
+    <Compile Include="Controls\BedCardControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\BedCardControl.Designer.cs">
+      <DependentUpon>BedCardControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SidebarControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SidebarControl.Designer.cs">
+      <DependentUpon>SidebarControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\VitalSignPanelControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\VitalSignPanelControl.Designer.cs">
+      <DependentUpon>VitalSignPanelControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\WaveformViewControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\WaveformViewControl.Designer.cs">
+      <DependentUpon>WaveformViewControl.cs</DependentUpon>
+    </Compile>
+    <!-- UI -->
+    <Compile Include="UI\DashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\DashboardForm.Designer.cs">
+      <DependentUpon>DashboardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SetPatientsInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\SetPatientsInfo.Designer.cs">
+      <DependentUpon>SetPatientsInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\SettingsForm.Designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AlarmPopupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\AlarmPopupForm.Designer.cs">
+      <DependentUpon>AlarmPopupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AlarmListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\AlarmListForm.Designer.cs">
+      <DependentUpon>AlarmListForm.cs</DependentUpon>
+    </Compile>
+    <!-- Program -->
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\SetPatientsControl.resx">
+      <DependentUpon>SetPatientsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\BedCardControl.resx">
+      <DependentUpon>BedCardControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SidebarControl.resx">
+      <DependentUpon>SidebarControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\VitalSignPanelControl.resx">
+      <DependentUpon>VitalSignPanelControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\WaveformViewControl.resx">
+      <DependentUpon>WaveformViewControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\AlarmPopupForm.resx">
+      <DependentUpon>AlarmPopupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\DashboardForm.resx">
+      <DependentUpon>DashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SetPatientsInfo.resx">
+      <DependentUpon>SetPatientsInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Helpers\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <PackageReference Include="ClosedXML">
+      <Version>0.102.2</Version>
+    </PackageReference>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+    <PackageReference Include="Dapper">
+      <Version>2.1.79</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.1" />
+    <PackageReference Include="OxyPlot.WindowsForms" Version="2.1.2" />
+    <PackageReference Include="NModbus" Version="3.0.14" />
+    <PackageReference Include="Serilog" Version="2.12.0" />
+    <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="4.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="FluentValidation" Version="10.4.0" />
+    <PackageReference Include="SunnyUI">
+      <Version>3.9.7</Version>
+    </PackageReference>
+    <PackageReference Include="EntityFramework">
+      <Version>6.5.1</Version>
+    </PackageReference>
+  </ItemGroup>
+</Project>
